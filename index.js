@@ -6,6 +6,7 @@ const pgRoutes = require('./routes/pgRoutes');
 const authRoutes = require('./routes/authRoutes');
 const favoriteRoutes = require('./routes/favoriteRoutes');
 const ownerRoutes = require('./routes/ownerRoutes');
+const PORT = process.env.PORT || 5000;
 
 // Load env variables
 dotenv.config();
@@ -15,6 +16,10 @@ connectDB();
 
 // Initialize app
 const app = express();
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 
 // Middleware
 app.use(cors());
